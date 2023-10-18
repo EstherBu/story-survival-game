@@ -1,2 +1,4 @@
-package com.api.storysurvivalgame.controller;public class PlayerController {
+package com.api.storysurvivalgame.controller;
+
+public class PlayerController {
 }
