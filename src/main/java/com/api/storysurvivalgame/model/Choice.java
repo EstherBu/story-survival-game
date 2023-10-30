@@ -8,17 +8,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "choice")
+@Table(name = "choices")
+@JsonIgnoreProperties({"players"})
 public class Choice {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int choiceId;
 
-    @Column(name = "choices")
-    private String choices;
+    @Column(columnDefinition = "text", name = "choice_options")
+    private String choiceOptions;
 
     @ManyToOne
     @JoinColumn(name = "story_segment_id")
-    @JsonIgnoreProperties({"story_segment"})
+    @JsonIgnoreProperties({"storySegment"})
     private StorySegment storySegment;
 }

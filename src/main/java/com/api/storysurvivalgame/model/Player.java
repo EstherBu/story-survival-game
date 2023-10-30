@@ -1,6 +1,5 @@
 package com.api.storysurvivalgame.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +19,4 @@ public class Player {
 
     @Column(name = "hp")
     private int hp;
-
-    @ManyToOne
-    @JoinColumn(name = "story_segment_id")
-    @JsonIgnoreProperties({"story_segment"})
-    private StorySegment storySegment;
 }

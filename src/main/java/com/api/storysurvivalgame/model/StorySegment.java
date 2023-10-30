@@ -11,19 +11,16 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "story_segment")
+@JsonIgnoreProperties({"choices", "players"})
 public class StorySegment {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @Column(name = "story_segment")
+    @Column(columnDefinition = "text", name = "story_segment")
     private String StorySegment;
 
-    @OneToMany(mappedBy = "story_segment")
-    @JsonIgnoreProperties({"story_segment"})
-    private List<Player> players;
-
     @OneToMany(mappedBy = "storySegment")
-    @JsonIgnoreProperties({"storySegment"})
     private List<Choice> choices;
 }
